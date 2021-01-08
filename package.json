@@ -1,0 +1,23 @@
+{
+  "name": "neosvr_github",
+  "version": "1.0.0",
+  "description": "NeosVR to GitHub Connector",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ViARSys/neosvr_github.git"
+  },
+  "author": "Jerad Bitner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViARSys/neosvr_github/issues"
+  },
+  "homepage": "https://github.com/ViARSys/neosvr_github#readme",
+  "dependencies": {
+    "@octokit/rest": "^18.0.12",
+    "express": "^4.17.1"
+  }
+}
