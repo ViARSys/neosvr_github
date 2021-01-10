@@ -24,7 +24,7 @@ app.get('/projects-by-org/:org', function(req, res) {
     const projects = projectData.map(function(proj) {
       return proj.id + ': ' + proj.name;
     });
-
+    projects.push('length:' + projects.length);
     return projects;
   }
 
@@ -51,7 +51,7 @@ app.get('/projects-by-repo/:owner/:repo', function(req, res) {
     const projects = projectData.map(function(proj) {
       return proj.id + ': ' + proj.name;
     });
-
+    projects.push('length:' + projects.length);
     return projects;
   }
 
@@ -76,7 +76,7 @@ app.get('/columns/:project_id', function(req, res) {
     const columns = columnData.map(function(col) {
       return col.id + ': ' + col.name;
     });
-
+    columns.push('length:' + columns.length);
     return columns;
   }
 
@@ -101,7 +101,7 @@ app.get('/cards/:column_id', function(req, res) {
     const cards = cardData.map(function(card) {
       return card.id + ': ' + card.note;
     });
-
+    cards.push('length:' +cards.length);
     return cards;
 
   }
