@@ -1,5 +1,6 @@
 # GitHub Neos Connector
 > This is a Node.js application for pulling data out of GitHub, picking pieces of it out, and providing endpoints to retrieve the data formatted in away that is easy for Neos to ingest with LogiX.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7XG-iODPVfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Installation
 1. Clone the repository.
