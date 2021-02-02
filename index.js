@@ -101,9 +101,8 @@ app.get('/cards/:column_id', function(req, res) {
     const cards = cardData.map(function(card) {
       return card.id + ': ' + card.note;
     });
-    cards.push('length:' +cards.length);
+    cards.push('length:' + cards.length);
     return cards;
-
   }
 
   requestCards(column_id).then(function(response) {
@@ -112,3 +111,29 @@ app.get('/cards/:column_id', function(req, res) {
 });
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));
+
+// LogiX basically does the following:
+//
+// getColumns = function() {
+//   countCols();
+//   parseCols = function() {
+//     foreach (col) {
+//       parseCol = function() {
+//         parseID();
+//         parseTitle();
+//         createCol();
+//         getCards = function() {
+//           countCards();
+//           parseCards = function(cards) {
+//             foreach (card) {
+//               parseCardID();
+//               parseCardTitle();
+//               parseCardDescription();
+//               createCard();
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
