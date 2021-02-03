@@ -110,6 +110,56 @@ app.get('/cards/:column_id', function(req, res) {
   });
 });
 
+// ----------------------
+// List Columns and Cards
+//
+// Given a project id, return a list of columns and their associated
+// cards. Combines the above two functions into one callback in an attempt to
+// consolidate the calls from Neos into just one and perform more standard
+// JSON parsing in Neos.
+//
+// format:
+// {
+//   "Column Name": {
+//     "Cards": [
+//       {
+//         "id": "1",
+//         "col_id": "1",
+//         "note": "text to parse"
+//       },
+//       {
+//         "id": "2",
+//         "col_id": "1",
+//         "note": "text to parse"
+//       }
+//     ]
+//   }
+// }
+app.get('/colcard/:project_id', function(req, res) {
+  const project_id = req.params.project_id;
+
+  const requestColumns = async function(proj_id) {
+    const columnResponse = await octokit.projects.listColumns({
+      project_id: proj_id,
+    });
+    const columnData = columnResponse.data;
+
+    for (const col of columnData) {
+      const cardResponse = await octokit.projects.listCards({
+        column_id: col.id
+      });
+      const cardData = cardResponse.data;
+
+      col.cards = cardData;
+    }
+    return columnData;
+  }
+
+  requestColumns(project_id).then(function(response) {
+    res.send(response);
+  });
+});
+
 app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));
 
 // LogiX basically does the following:
